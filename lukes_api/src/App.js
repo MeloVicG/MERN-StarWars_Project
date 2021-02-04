@@ -4,6 +4,7 @@ import { Router } from '@reach/router';
 import Form from './components/Form';
 import People from './components/People';
 import Planets from './components/Planet';
+// import './static/style.css'
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
       <Router>
         <Form path="/"/>
         <People path="people/:id"/>
-        <Planets path="planets/:id"/>
+        {/* <Planets path="planets/:id"/> */}
       </Router>
     </div>
   );

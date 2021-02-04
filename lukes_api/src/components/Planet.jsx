@@ -6,8 +6,8 @@ const Planets = (props) => {
     const [planet, setPlanet] = useState([]);
     const [error, setError] = useState(null);
 
-    useEffect(() => {                                                  //WDTD?
-        axios.get(`https://swapi.dev/api/planets/${props.id}`) //${props.id}
+    useEffect(() => {                                                 
+        axios.get(`https://swapi.dev/api/planets/${props.id}`)
             .then(response => {
                 console.log(response)
                 setPlanet(response.data)
@@ -35,7 +35,7 @@ const Planets = (props) => {
         return (
             <div>
                 <h1>{error}</h1>
-                <img style={{"width": "50%"}} src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/the-mandalorian-1572282426.jpg" alt="Mando shoot him"/>
+                <img style={{"width": "50%"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6mhcIEZ2_FjKTFgTZnDl52ViZJy83LEX5og&usqp=CAU" alt="error image"/>
 
             </div>
         )

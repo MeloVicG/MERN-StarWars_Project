@@ -1,0 +1,73 @@
+#container * {
+    margin: 0;
+    padding: 0;
+    /* border: red dotted 1px; */
+    /* width: 970px;
+    height: auto; */
+}
+
+/* #container{
+    display: flex;
+} */
+
+.starWarsProfile{
+    display: inline-block,                                                                                                                                         ;
+    /* border: blue dotted 3px; */
+    color: white;
+    /* padding: 500px; */
+}
+    .profilePicture{
+        display: inline-block;
+        margin-right: 220px;
+        border: blue solid 2px;
+    }
+        .statsInputs, .stats{
+            /* border: 1px black solid; */
+            display: inline-block;
+            color: white;
+            /* padding: 0px 350px; */
+            /* vertical-align: middle; */
+        }
+        .stats{
+            align-content: center;
+        }
+        input{
+            display: block;
+        }
+
+    #second_box{
+        display:flex;
+        justify-content: space-around;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        /* border: blueviolet solid 2px; */
+    }
+
+        .chooseBar{
+            display: inline-bock;
+            /* border: black solid 1px; */
+        } 
+
+        .lightOrDark{ 
+            display: inline-block;
+        }
+            
+            .darkButton{
+            font-size: 40px;
+            background-color:black;
+            color: red;
+            border-radius: 5px;
+            width:150px;
+            height: 80px
+            }
+            .lightButton {
+                font-size: 40px;
+                background-color: green;
+                color: white;
+                border-radius: 5px;
+                width: 150px;
+                height: 80px
+            }
+            .chooseMentor{
+                color:white;
+            }
