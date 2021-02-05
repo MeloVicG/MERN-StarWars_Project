@@ -26,12 +26,12 @@ const Imperial = (props) => {
             <div className="picture_container">
 
                 {/* Dark Side */}
-                <img style={{width:"50%"}} src="https://fastly.syfy.com/sites/syfy/files/wire/legacy/rogue-one-darth-vader.jpg" alt="Darth Vader"/>
-                <img style={{width:"40%"}} src="https://wallpaperaccess.com/full/3121227.jpg" alt="Palpatine"/>
+                {/* <img style={{width:"50%"}} src="https://fastly.syfy.com/sites/syfy/files/wire/legacy/rogue-one-darth-vader.jpg" alt="Darth Vader"/> */}
+                {/* <img style={{width:"40%"}} src="https://wallpaperaccess.com/full/3121227.jpg" alt="Palpatine"/>
                 <img style={{width:"35%"}} src="https://starwarstime.net/wp-content/uploads/2020/05/preview.jpg" alt="Darth Maul"/>
                 <img style={{width:"50%"}} src="https://i.pinimg.com/originals/fe/15/1e/fe151ec8ca55870a51047ee6d5bd6df0.jpg" alt="Dooku"/>
                 <img style={{width:"50%"}} src="https://static1.srcdn.com/wordpress/wp-content/uploads/2019/07/Count-Grievous.jpg" alt="Grievous"/>
-                <img style={{width:"50%"}} src="https://www.fanthatracks.com/wp-content/uploads/2019/02/AoR-JangoFett-Cover_1.jpg" alt="Jango Fett"/>
+                <img style={{width:"50%"}} src="https://www.fanthatracks.com/wp-content/uploads/2019/02/AoR-JangoFett-Cover_1.jpg" alt="Jango Fett"/> */}
             
             </div>
         );

@@ -41,7 +41,7 @@ const People = (props) => {
     const displayError = () => {
         return (
             <div>
-                <h1>{error}</h1>
+                <h1 style={{color:"white"}}>{error}</h1>
                 <img style={{"width": "30%",border:"blue 3px solid"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6mhcIEZ2_FjKTFgTZnDl52ViZJy83LEX5og&usqp=CAU" alt="Mando shoot him"/>
             </div>
         )
