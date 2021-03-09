@@ -23,5 +23,5 @@ const StarWarsSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
-module.exports.StarWars = mongoose.model('StarWars', StarWarsSchema);
+module.exports.Padawans = mongoose.model('Padawans', StarWarsSchema);
                                         //in Pirates-Controller

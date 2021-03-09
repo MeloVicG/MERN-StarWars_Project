@@ -13,18 +13,15 @@ module.exports.createPadawan = (request, response) => {
             response.json(data)
         })
         .catch(err => {
-            console.log('this is createPadawan Error', err)
+            console.log(err)
             response.status(400).json(err) //err is an object
         });
 }
 module.exports.allPadawans = (request, response) => {
     Padawans.find() //{}), null, {sort:{name:1}})  //find() is not an option??
-        .then(data => {
-            console.log(data)
-            response.json(data)
-        })
+        .then(data => response.json(data)
+        )
         .catch(err => {
-            console.log('this is allPadawans Error', err)
             response.status(400).json(err) //err is an object
         });
 }
@@ -35,7 +32,7 @@ module.exports.findOnePadawan = (request, response) => {
             response.json(data)
         })
         .catch(err => {
-            console.log('this is findOnePadawan Error', err)
+            console.log(err)
             response.status(400).json(err) //err is an object
         });
 }

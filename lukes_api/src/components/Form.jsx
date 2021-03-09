@@ -1,4 +1,4 @@
-import { navigate } from '@reach/router';
+import { navigate,Link } from '@reach/router';
 import React, { useState, useEffect } from 'react';
 import { motion } from "framer-motion"
 import axios from 'axios'
@@ -6,12 +6,17 @@ import '../static/style.css'
 
 //practice material-UI stuff
 // import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
+import Button from '@material-ui/core/Button'
+// import { Paper, Card } from '@material-ui/core';
+// import TextField from '@material-ui/core/Checkbox'
 
-import People from './People';
+// import People from './People';
 // import Republic from '../views/Republic'
 // import Imperial from '../views/Imperial'
 
 const Form = (props) => {
+    const {addPadawan} = props;
+
     const [select, setSelect] = useState("people");
     const [padawan, setPadawan] = useState("padaWan");
     const [padawanName, setPadawanName] = useState("");
@@ -32,37 +37,43 @@ const Form = (props) => {
 
 
 
-    useEffect(() => {
-        axios.get(`http://localhost:8200/StarWars`)
-            .then(res => {
-                setPadawanName(res.data);
-            });
-    }, []);
+    // useEffect(() => {
+    //     axios.get(`http://localhost:8200/StarWars`)
+    //         .then(res => {
+    //             setPadawanName(res.data);
+    //         });
+    // }, []);
 
     const getApi = (e) => {
         e.preventDefault();
         navigate(`/${select}/${id}`)
     };
 
-    const addAPadawan = {
-        padawanName,
-        height,
-        hairColor,
-        eyeColor,
-        picture
-    };
 
-    useEffect(() => {                                                  //WDTD?
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+        
+        const addAPadawan = {
+            padawanName,
+            height,
+            hairColor,
+            eyeColor,
+            picture
+        };
         axios.post(`http://localhost:8200/StarWars/create`, addAPadawan) //${props.id}
             .then(response => {
-                console.log(response)
-                setPadawan(response.data)
+                console.log("axios.post response: ", response)
+                addPadawan(response.data)
             })
             .catch((error) => {
                 console.log("this is the axios.post error part", error);
-                setError("R-2 WE HAVE A PROBLEM!!") //when we want to show error
+                console.log(error.response.data) 
+                // setError("we cant add anyone into the database?") //when we want to show error
+                // const {errors} = error.response.data;
+                // const messages = Object.keys(errors).map(error => errors[error].message);
+                // setError(messages);
             })
-    }, []);
+    }
 
     //more complicated way of showing mentors
     // const chooseSideLight = (e) => {
@@ -234,7 +245,7 @@ const Form = (props) => {
     }
 
     return (
-        
+
         <div id="container" style={{ width: "100%", backgroundImage: `url(${process.env.PUBLIC_URL + 'https://pbs.twimg.com/media/D8WvZo2XsAISzfb.jpg'}` }}>
             <div className="starWarsProfile">
                 <motion.h1 animate={{ scale: 1.3, fontSize: 100, color: '#ff2994', x: 100, y: 5 }}>
@@ -255,33 +266,56 @@ const Form = (props) => {
             </div>
 
             <div id="second_box">
+                <div>
+                    <form onSubmit={onSubmitHandler}>
+                        <div className="statsInputs">
+                            <h2>Create Padawan</h2>
+                            <input placeholder="Name:" type="text" onChange={e => setPadawanName(e.target.value)} />
 
-                <form>
+                            {/* not working? */}
+                            {/* <TextField variant="outlined" color="secondary"  placeholder="Name:" type="text" onChange={e => setPadawanName(e.target.value)} /> */}
+                            
+                            <input placeholder="Height:" type="text" onChange={e => setHeight(e.target.value)} />
+                            <input placeholder="Hair Color:" type="text" onChange={e => setHairColor(e.target.value)} />
+                            <input placeholder="Eye Color:" type="text" onChange={e => setEyeColor(e.target.value)} />
+                            <label htmlFor="">Style:</label>
+                            <select placeholder="Picture:" type="text" onChange={e => setPicture(e.target.value)}>
+                                <option value="">Select a Padawan</option>
+                                <option value="https://i.pinimg.com/originals/86/72/35/8672358eacf638354cb8e854c3c3233a.jpg"> Winter Soldier</option>
+                                <option value="https://i.pinimg.com/236x/c1/1c/fc/c11cfcff94cd433ca47ea27eb2d1f8cf--star-wars-jedi-star-wars-art.jpg"> Absolute Control</option>
+                                <option value="https://pm1.narvii.com/6371/9687ae59a0c121b5e8995b6d8ea0d646924bd279_hq.jpg">Attack On Sith</option>
+                                <option value="https://static3.srcdn.com/wordpress/wp-content/uploads/2019/03/Jaina-Solo-Fel-Image-Credit-svenjaliv-at-deviantart.jpg?q=50&fit=crop&w=740&h=518">Punker</option>
+                                <option value="https://i.pinimg.com/originals/70/af/34/70af34821fcc45a0018024a7dbe015a2.jpg">The Wise</option>
+                            </select>
+                            {/* onChange={e => setPicture(e.target.value)} */}
+                        </div>
+                        <br />
+                        <br />
+                        <motion.button 
+                        initial={{scale:1.0}}
+                        whileTap={{ scale: 0.9 }}
+                        whileHover={{
+                            scale: 1.1,
+                            textShadow: "0px 0px 8px rgb(255,255,255)",
+                            boxShadow: "0px 0px 8px rgb(255,255,255)"
+                        }}
+                        animate={{ scale: 1.2, fontSize: 100, color: '#ff2994', x: 100, y: 5 }}
+                        > Enter the Thunderdome!</motion.button>
+                    </form>
+                    <br/>
+                    <Link style={{color:"white"}}to={`/padawan/list`}>Padawans Detail</Link>
+                </div>
 
-                    <div className="statsInputs">
-                        <h2>Create Padawan</h2>
-                        <input placeholder="Name:" type="text" onChange={e => setPadawanName(e.target.value)} />
-                        <input placeholder="Height:" type="text" onChange={e => setHeight(e.target.value)} />
-                        <input placeholder="Hair Color:" type="text" onChange={e => setHairColor(e.target.value)} />
-                        <input placeholder="Eye Color:" type="text" onChange={e => setEyeColor(e.target.value)} />
-                        <label htmlFor="">Style:</label>
-                        <select placeholder="Picture:" type="text" onChange={e => setPicture(e.target.value)}>
-                            <option value="">Select a Padawan</option>
-                            <option value="https://i.pinimg.com/originals/86/72/35/8672358eacf638354cb8e854c3c3233a.jpg"> Winter Soldier</option>
-                            <option value="https://i.pinimg.com/236x/c1/1c/fc/c11cfcff94cd433ca47ea27eb2d1f8cf--star-wars-jedi-star-wars-art.jpg"> Absolute Control</option>
-                            <option value="https://pm1.narvii.com/6371/9687ae59a0c121b5e8995b6d8ea0d646924bd279_hq.jpg">Attack On Sith</option>
-                            <option value="https://static3.srcdn.com/wordpress/wp-content/uploads/2019/03/Jaina-Solo-Fel-Image-Credit-svenjaliv-at-deviantart.jpg?q=50&fit=crop&w=740&h=518">Punker</option>
-                            <option value="https://i.pinimg.com/originals/70/af/34/70af34821fcc45a0018024a7dbe015a2.jpg">The Wise</option>
-                        </select>
-                        {/* onChange={e => setPicture(e.target.value)} */}
-                    </div>
-                    <br />
-                    <br />
-                    {/* <button style={{marginLeft:"500px"}}> Enter the Thunderdome!</button> */}
-                </form>
+
+                {/* material-UI button practice */}
+                {/* <Button variant="contained" color="secondary">
+                    Hello World
+                </Button> */}
+
 
                 <motion.div className="lightOrDark">
                     <motion.button
+                        variant="contained"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1, rotateZ: 360 }}
                         transition={{ duration: .5, type: 'spring', stiffness: 20 }}
@@ -290,6 +324,8 @@ const Form = (props) => {
                             textShadow: "0px 0px 8px rgb(255,255,255)",
                             boxShadow: "0px 0px 8px rgb(255,255,255)"
                         }}
+                        drag="x"
+                        dragConstraints={{ left: -100, right: 100 }}
                         whileTap={{ scale: 0.9 }}
                         className="lightButton" onClick={() =>
                             setLightSide(!lightSide)}><h3>Light</h3>
@@ -315,7 +351,6 @@ const Form = (props) => {
                 </motion.div>
 
                 <form className="chooseBar" onSubmit={getApi}>
-
                     <div className="chooseMentor">
                         <label htmlFor="select">Choose your Master </label>
                         <br />
@@ -329,12 +364,13 @@ const Form = (props) => {
                     </div>
                     <br />
 
-                    <motion.button
-                        whileHover={{ scale: 1.5 }}
+                    <Button
+                    variant="contained" color="secondary"
+                        // whileHover={{ scale: 1.5 }}
                         type='submit'
-                        style={{ width: "100px", height: "50px", marginBottom: "20px" }}
+                        // style={{ width: "100px", height: "50px", marginBottom: "20px" }}
                     >Features
-                        </motion.button>
+                        </Button>
                     {/* because its inside a form dont need onClick */}
                 </form>
             </div>
