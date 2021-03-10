@@ -303,7 +303,7 @@ const Form = (props) => {
                         > Enter the Thunderdome!</motion.button>
                     </form>
                     <br/>
-                    <Link style={{color:"white"}}to={`/padawan/list`}>Padawans Detail</Link>
+                    {/* <Link style={{color:"white"}}to={`/padawan/list`}>Padawans Detail</Link> */}
                 </div>
 
 
