@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Form path="/" addPadawan={addPadawan}/>
+        <Form path="/" addPadawan={addPadawan} padawans={padawans}/>
         <People path="people/:id"/>
         <Padawan path="padawan/list" padawans={padawans}/>
         {/* <Planets path="planets/:id"/> */}

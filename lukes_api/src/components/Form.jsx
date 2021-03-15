@@ -67,7 +67,7 @@ const Form = (props) => {
             })
             .catch((error) => {
                 console.log("this is the axios.post error part", error);
-                console.log(error.response.data) 
+                // console.log(error.response.data) 
                 // setError("we cant add anyone into the database?") //when we want to show error
                 // const {errors} = error.response.data;
                 // const messages = Object.keys(errors).map(error => errors[error].message);
@@ -300,10 +300,10 @@ const Form = (props) => {
                             boxShadow: "0px 0px 8px rgb(255,255,255)"
                         }}
                         animate={{ scale: 1.2, fontSize: 100, color: '#ff2994', x: 100, y: 5 }}
-                        > Enter the Thunderdome!</motion.button>
+                        > Enter into Database!</motion.button>
                     </form>
                     <br/>
-                    {/* <Link style={{color:"white"}}to={`/padawan/list`}>Padawans Detail</Link> */}
+                    <Link style={{color:"white"}} to={`/padawan/list`}>Padawans Detail</Link>
                 </div>
 
 
