@@ -1,0 +1,27 @@
+{
+  "name": "starwars_api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MeloVicG/MERN-StarWars_Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MeloVicG/MERN-StarWars_Project/issues"
+  },
+  "homepage": "https://github.com/MeloVicG/MERN-StarWars_Project#readme",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.0"
+  }
+}

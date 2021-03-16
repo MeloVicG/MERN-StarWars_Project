@@ -36,7 +36,7 @@ const Form = (props) => {
     const [backgroundImage, setBackgroundImage] = useState('');
 
 
-
+//WDTD?? why do i have this?
     // useEffect(() => {
     //     axios.get(`http://localhost:8200/StarWars`)
     //         .then(res => {
