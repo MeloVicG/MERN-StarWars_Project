@@ -273,7 +273,7 @@ const Form = (props) => {
                             <input placeholder="Name:" type="text" onChange={e => setPadawanName(e.target.value)} />
 
                             {/* not working? */}
-                            {/* <TextField variant="outlined" color="secondary"  placeholder="Name:" type="text" onChange={e => setPadawanName(e.target.value)} /> */}
+                            {/* <TextField variant="outlined" color="secondary"  placeholder="Name:," type="text" onChange={e => setPadawanName(e.target.value)} /> */}
                             
                             <input placeholder="Height:" type="text" onChange={e => setHeight(e.target.value)} />
                             <input placeholder="Hair Color:" type="text" onChange={e => setHairColor(e.target.value)} />
@@ -312,8 +312,9 @@ const Form = (props) => {
                     Hello World
                 </Button> */}
 
-
                 <motion.div className="lightOrDark">
+                    <p style={{color:"white"}}>drag button</p>
+
                     <motion.button
                         variant="contained"
                         initial={{ opacity: 0 }}
@@ -331,7 +332,6 @@ const Form = (props) => {
                             setLightSide(!lightSide)}><h3>Light</h3>
                     </motion.button>
                     <br />
-
                     <motion.button
                         // initial={{opacity:0, x:'150vw'}}
                         // animate={{opacity:1, x:0 ,rotateZ: 360}}
